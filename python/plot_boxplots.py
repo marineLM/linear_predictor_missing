@@ -26,10 +26,17 @@ def display_boxplots(scores_avg, b2yes_rate, file_root,
         legend = ax.legend()
         legend.set_title(None)
 
+        # Horizontal greyed spans
+        for i, _ in enumerate(plt.yticks()[0]):
+            if not i % 2:
+                continue
+            ax.axhspan(i - .5, i + .5, color='.92', zorder=-2)
+
         if bayes_rate is not None:
             br = bayes_rate.iloc[0][scoring]
             ax.axvline(br, color="r")
 
+        plt.axis('tight')
         if scoring == 'r2':
             # For r2 score, drawn ticker lines at 0 and 1
             xmin, xmax = plt.xlim()
@@ -42,31 +49,30 @@ def display_boxplots(scores_avg, b2yes_rate, file_root,
             if xmin <= -1:
                 xmin = -1
             plt.xlim(xmin=xmin, xmax=xmax)
-            plt.xlabel('R2')
 
-        # ticks = plt.xticks()[0]
-        # plt.xticks(ticks, ['%.1f' % t for t in ticks])
+        if scoring == 'r2':
+            plt.xlim(xmin=xmin, xmax=xmax)
+
+        if display_names:
+            ticks = plt.xticks()[0]
+            plt.xticks(ticks[::2], ['%.2f' % t for t in ticks[::2]])
+
         plt.ylabel(None)
+        plt.xlabel('R2')
+        plt.tight_layout(pad=.01)
         if not display_names:
             pos, names = plt.yticks()
             names = [name.get_text() for name in names]
             short_names = [(name.split(' ')[-1] if name.startswith('MLP')
-                            else '') for name in names]
+                            else '')
+                            for name in names]
             plt.yticks(pos, short_names)
-            # legend.set_visible(False)
-
-        # Horizontal greyed spans
-        for i, _ in enumerate(plt.yticks()[0]):
-            if not i % 2:
-                continue
-            ax.axhspan(i - .5, i + .5, color='.92', zorder=-2)
-
-        plt.axis('tight')
-        plt.tight_layout(pad=.01)
-
+            #legend.set_visible(False)
         plt.savefig("../figures/{}_{}.pdf".format(file_root, scoring),
                     edgecolor='none', facecolor='none')
         plt.close()
+
+
 
 
 if __name__ == '__main__':
