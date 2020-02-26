@@ -4,6 +4,7 @@ import seaborn as sns
 
 # Closer ticks
 plt.rcParams['ytick.major.pad'] = -2.5
+plt.rcParams['pdf.fonttype'] = 42
 
 
 def display_boxplots(scores_avg, b2yes_rate, file_root,

@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
+plt.rcParams['pdf.fonttype'] = 42
+
 
 def display_scaling_q(scores_avg, bayes_rate, data_type, figname,
                       do_legend=True):

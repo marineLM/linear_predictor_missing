@@ -4,6 +4,8 @@ import seaborn as sns
 import matplotlib.lines as mlines
 import numpy as np
 
+plt.rcParams['pdf.fonttype'] = 42
+
 
 def display_curves(scores_avg, bayes_rate, file_root, n_sizes, p_sizes,
                    do_legend=True):

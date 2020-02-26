@@ -4,6 +4,8 @@ import seaborn as sns
 import matplotlib.lines as mlines
 import numpy as np
 
+plt.rcParams['pdf.fonttype'] = 42
+
 
 def display_scaling_n(scores_avg, bayes_rate, q, data_type, figname):
     # Take one p out of two
