@@ -31,7 +31,7 @@ def generate_toy_params_mixture(n_features, n_comp, prob_comp, mean_factor,
 
     prop_latent: float
         The number of latent factors used to generate the covariance matrix is
-        prop_latent*n_feature. The less factots the higher the covariances.
+        prop_latent*n_features. The less factors the higher the correlations.
         Should be between 0 and 1.
 
     noise: boolean, optional, default False
