@@ -23,7 +23,7 @@ numpy2ri.activate()
 pandas2ri.activate()
 
 
-class ConstantImputedLR():
+class ConstantImputedLR(BaseEstimator):
     def __init__(self):
         self._reg = LinearRegression()
 
@@ -44,7 +44,7 @@ class ConstantImputedLR():
         return self._reg.predict(T)
 
 
-class ExpandedLR():
+class ExpandedLR(BaseEstimator):
     def __init__(self):
         """The intercept is in the matrix."""
         self._reg = RidgeCV(
@@ -134,7 +134,7 @@ class EMLR(BaseEstimator, RegressorMixin):
         return pred
 
 
-class ConstantImputedMLPR():
+class ConstantImputedMLPR(BaseEstimator):
     def __init__(self, est_params={}):
         self.imputation = est_params['imputation']
         self.mask = est_params['mask']
@@ -165,7 +165,7 @@ class ConstantImputedMLPR():
         return self._reg.predict(T)
 
 
-class MICELR():
+class MICELR(BaseEstimator):
     def __init__(self):
         self._reg = LinearRegression()
         self._imp = IterativeImputer(random_state=0)
