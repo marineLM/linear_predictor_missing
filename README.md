@@ -1,6 +1,9 @@
 This repository contains the code to reproduce the experiments in our paper:
 *Linear predictor on linearly-generated data with missing values: non consistency and solutions*.
 
+The file **environment_lpm.yml** indicates the packages required to run the code as well as the
+versions that were used.
+
 The file **ground_truth.py** contains the parameter generation, data generation and Bayes rate functions.
 
 The file **estimators.py** contains all the classes of estimators used.
