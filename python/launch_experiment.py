@@ -1,3 +1,8 @@
+"""Running this file launches the simulations.
+It can be edited to:
+    - change the simulation settings desired,
+    - change the estimators that should be tested for these simulations.
+"""
 import numpy as np
 import pickle
 import itertools

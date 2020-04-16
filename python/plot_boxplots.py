@@ -65,15 +65,12 @@ def display_boxplots(scores_avg, b2yes_rate, file_root,
             pos, names = plt.yticks()
             names = [name.get_text() for name in names]
             short_names = [(name.split(' ')[-1] if name.startswith('MLP')
-                            else '')
-                            for name in names]
+                            else '') for name in names]
             plt.yticks(pos, short_names)
-            #legend.set_visible(False)
+            # legend.set_visible(False)
         plt.savefig("../figures/{}_{}.pdf".format(file_root, scoring),
                     edgecolor='none', facecolor='none')
         plt.close()
-
-
 
 
 if __name__ == '__main__':

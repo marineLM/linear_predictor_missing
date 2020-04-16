@@ -1,3 +1,9 @@
+"""This file contains functions to:
+    - compute the parameters used to generate simulated data,
+    - generate simulated data using these parameters,
+    - compute the Bayes rate of the pattern mixture model (both exact analytic
+    expression and Monte Carlo approximation).
+"""
 import numpy as np
 from sklearn.utils import check_random_state
 from scipy.stats import norm

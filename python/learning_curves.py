@@ -1,3 +1,6 @@
+"""This file contains the code to fit different estimators on various
+simulation settings, and saves the results as a csv file.
+"""
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from collections import namedtuple
